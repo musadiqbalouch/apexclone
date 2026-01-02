@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "name": "musadiq",
+    "email": "musadiq12@gmail.com",
+    "password": "123123",
+    "role": "HR"
+  },
+  {
+    "id": 2,
+    "name": "shazaib",
+    "email": "shazaib12@gmail.com",
+    "password": "123123",
+    "role": "Employee"
+  },
+  {
+    "id": 3,
+    "name": "aarish",
+    "email": "arish12@gmail.com",
+    "password": "123123",
+    "role": "Employee"
+  },
+  {
+    "id": 4,
+    "name": "arfeen",
+    "email": "arfeen12@gmail.com",
+    "password": "123123",
+    "role": "Employee"
+  }
+]

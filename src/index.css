@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+@theme {
+  /* fonts */
+  --font-display: "Kumbh Sans", "sans-serif";
+
+  /* breakpoints */
+  --breakpoint-s_phone: 319px;
+  --breakpoint-m_phone: 374px;
+  --breakpoint-phone: 424px;
+  --breakpoint-tablet: 767px;
+  --breakpoint-laptop-sm: 900px;
+  --breakpoint-laptop: 1023px;
+  --breakpoint-laptop-lg: 1366px;
+  --breakpoint-desktop: 1439px;
+  --breakpoint-_4k: 1920px;
+}
