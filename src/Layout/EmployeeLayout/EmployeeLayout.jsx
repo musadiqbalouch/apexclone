@@ -3,13 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import Employee from "../../Views/Employee";
 
 const EmployeeLayout = () => {
-  return (
-    <div>
-      <Routes>
-        <Route path="employe" element={<Employee />} />
-      </Routes>
-    </div>
-  );
+  return <div>i am employe</div>;
 };
 
 export default EmployeeLayout;

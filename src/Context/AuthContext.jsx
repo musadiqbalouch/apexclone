@@ -33,6 +33,7 @@ export const AuthContextProvider = ({ children }) => {
         user: values,
       }));
       setAuthState((prev) => ({ ...prev, isAuthenticated: true }));
+
       // navigate("/employe");
     } catch (error) {
       setAuthState((prev) => ({ ...prev, isAuthenticated: false }));

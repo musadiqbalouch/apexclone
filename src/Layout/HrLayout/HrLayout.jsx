@@ -5,9 +5,10 @@ import HR from "../../Views/Hr";
 const HrLayout = () => {
   return (
     <div>
-      <Routes>
-        <Route path="hr" element={<HR />} />
-      </Routes>
+      {/* <Routes>
+        <Route path="/hr" element={<HR />} />
+      </Routes> */}
+      i am hr
     </div>
   );
 };
