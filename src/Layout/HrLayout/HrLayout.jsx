@@ -1,14 +1,16 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
-import HR from "../../Views/Hr";
+import HrSidebar from "../../Components/HrComp/HrSidebar/HrSidebar";
+import Header from "../../Components/Common/CommanHeader/Header";
 
 const HrLayout = () => {
   return (
-    <div>
-      {/* <Routes>
-        <Route path="/hr" element={<HR />} />
-      </Routes> */}
-      i am hr
+    <div className="w-full flex ">
+      <div className="w-[17%] ">
+        <HrSidebar />
+      </div>
+      <div className="w-full">
+        <Header />
+      </div>
     </div>
   );
 };

@@ -15,5 +15,6 @@
   --breakpoint-desktop: 1439px;
   --breakpoint-_4k: 1920px;
 
+  --color-red: rgb(255, 0, 0);
   --color-light-blue: #24748f;
 }

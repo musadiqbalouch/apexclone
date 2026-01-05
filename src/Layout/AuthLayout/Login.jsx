@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Input from "../../Components/Common/Input";
+// import Input from "../../Components/Common/CommonInput";
 import { useAuthContext } from "../../Context/AuthContext";
 import Data from "../../Data.json";
 import ApexLogo from "../../assets/LoginComponentImage/apexlogo.png";
