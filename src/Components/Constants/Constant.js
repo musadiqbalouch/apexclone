@@ -9,34 +9,42 @@ export const SideBarLinks = [
   {
     logo: DashboardLogo,
     title: "Dashboard",
+    path: "/hr/dashboard",
   },
   {
     logo: EmployeeLogo,
     title: "Employees",
+    path: "/hr/employees",
   },
   {
     logo: AttendanceLogo,
     title: "Attendance",
+    path: "/hr/attendance",
   },
   {
     logo: LeaveManagementLogo,
     title: "Leave Management",
+    path: "/hr/leave-management",
   },
   {
     logo: DashboardLogo,
     title: "Brands",
+    path: "/hr/brands",
   },
   {
     logo: EmployeeLogo,
     title: "Permissions",
+    path: "/hr/permissions",
   },
   {
     logo: PayrollManagementLogo,
     title: "Payroll Management",
+    path: "/hr/payroll-management",
   },
   {
     logo: CommunicatationLogo,
     title: "Communication",
+    path: "/hr/communication",
   },
 ];
 
