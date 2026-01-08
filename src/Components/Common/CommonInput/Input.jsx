@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 
 const Input = ({
   type,
@@ -7,20 +7,23 @@ const Input = ({
   placeholder,
   label,
   className,
-  text,
+  name,
+  option,
+  ref,
 }) => {
   if (type === "select") {
     return (
-      <div className="flex flex-1 flex-col">
-        <label className="text-sm font-semibold" htmlFor="">
+      <div className="flex flex-1 flex-col ">
+        <label className="text-sm font-medium" htmlFor="">
           {label}
         </label>
         <select
-          className={`${className} placeholder:text-sm border w-full py-1 px-2 rounded-md`}
+          name={name}
+          onChange={onChange}
+          value={value}
+          className={`${className} border w-full py-2 px-2 rounded-md placeholder:text-xs font-semibold  text-xs border-gray-200 `}
         >
-          <option value="">Select Gender</option>
-          <option value="">option 1</option>
-          <option value="">option 1</option>
+          {option}
         </select>
       </div>
     );
@@ -36,34 +39,30 @@ const Input = ({
   } else if (type === "checkbox") {
     return (
       <div className="w-full flex gap-2 ">
-        <input type="checkbox" />
-        <label htmlFor="">{label}</label>
+        <input onChange={onChange} name={name} value={value} type="checkbox" />
+        <label className=" text-sm font-medium" htmlFor="">
+          {label}
+        </label>
       </div>
     );
   } else {
     return (
       <div className="flex flex-1 flex-col">
-        <label className="text-sm font-semibold" htmlFor="">
+        <label className="text-sm font-medium" htmlFor="">
           {label}
         </label>
         <input
           type={type}
-          className={`${className} placeholder:text-sm border w-full py-1 px-2 rounded-md`}
+          className={`${className} border w-full py-1 px-2 rounded-md placeholder:text-xs font-semibold  border-gray-200`}
           onChange={onChange}
+          name={name}
           value={value}
           placeholder={placeholder}
+          ref={ref}
         />
       </div>
     );
   }
-
-  return (
-    <div className="flex flex-1 flex-col">
-      <label className="text-sm font-semibold" htmlFor="">
-        {label}
-      </label>
-    </div>
-  );
 };
 
 export default Input;
