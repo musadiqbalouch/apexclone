@@ -12,6 +12,7 @@ import { useFormik } from "formik";
 
 const AddEmployee = ({ setShowModal }) => {
   const [currentStep, setCurrentStep] = useState(0);
+  console.log(currentStep);
   const steps = [
     PersonalInformarion,
     EmployeeDetail,
@@ -25,32 +26,40 @@ const AddEmployee = ({ setShowModal }) => {
   const prevStep = () => {
     setCurrentStep(currentStep - 1);
   };
-  const validatationSchema = [
-    Yup.object().shape({
-      fullName: Yup.string().required("name is required"),
-      gender: Yup.string().required("gender is required"),
-      maritalstatus: Yup.string().required("Please select your marital status"),
-      nationality: Yup.string().required("Please enter your nationality"),
-    }),
-    Yup.object().shape({
-      jobTitle: Yup.string().required("name is required"),
-      department: Yup.string().required("gender is required"),
-      employeerole: Yup.string().required("Please select your marital status"),
-      dateofJoining: Yup.string().required("Please enter your nationality"),
-      employementType: Yup.string().required("Please enter your nationality"),
-      workLocation: Yup.string().required("Please enter your nationality"),
-      shiftTiming: Yup.string().required("Please enter your nationality"),
-      ProbationPeriod: Yup.string().required("Please enter your nationality"),
-      basePay: Yup.string().required("Please enter your nationality"),
-      Allowances: Yup.string().required("Please enter your nationality"),
-    }),
-    Yup.object().shape({
-      employeeEmail: Yup.string().required("name is required"),
-      password: Yup.string().required("gender is required"),
-    }),
-  ];
+  const PersonalInformarionSchema = Yup.object().shape({
+    fullName: Yup.string().required("Please enter your full name"),
+    gender: Yup.string().required("Please select your gender"),
+    maritalstatus: Yup.string().required("Please select your marital status"),
+    nationality: Yup.string().required("Please enter your nationality"),
+  });
+  const EmployeeDetailSchema = Yup.object().shape({
+    jobTitle: Yup.string().required("Please enter job title"),
+    department: Yup.string().required("Please enter department"),
+    employeerole: Yup.string().required("Please enter role"),
+    dateofJoining: Yup.string().required("Please enter a valid date"),
+    employementType: Yup.string().required("Please select employment type"),
+    workLocation: Yup.string().required("Please enter work location"),
+    shiftTiming: Yup.string().required("Please select shift timing"),
+    ProbationPeriod: Yup.string().required("Please enter a valid number"),
+    basePay: Yup.string().required("Please enter a valid number"),
+    Allowances: Yup.string().required("Please enter a valid number"),
+  });
+  const EmployeeCredentialsSchema = Yup.object().shape({
+    employeeEmail: Yup.string().required("Email is required"),
+    password: Yup.string().required("Password is required"),
+  });
+
   const CurrentStepperComponent = steps[currentStep];
-  const CurrentValidationSchema = validatationSchema[currentStep];
+
+  const CurrentValidationSchema = () => {
+    if (currentStep === 0) {
+      return PersonalInformarionSchema;
+    } else if (currentStep === 1) {
+      return EmployeeDetailSchema;
+    } else {
+      return EmployeeCredentialsSchema;
+    }
+  };
 
   const formik = useFormik({
     initialValues: {
@@ -128,7 +137,11 @@ const AddEmployee = ({ setShowModal }) => {
           </div>
           <div className="flex justify-center m-auto gap-5 mt-2">
             <CommonButton
-              className={`${currentStep === 0 ? " hidden!" : "bg-gray-300 text-black! font-semibold cursor-pointer"}`}
+              className={`${
+                currentStep === 0
+                  ? " hidden!"
+                  : "bg-gray-300 text-black! font-semibold cursor-pointer"
+              }`}
               onClick={prevStep}
               text={"prev"}
             ></CommonButton>
@@ -136,10 +149,18 @@ const AddEmployee = ({ setShowModal }) => {
               onClick={nextStep}
               type={"button"}
               text={"Next"}
-              className={`${currentStep === steps.length - 1 ? "hidden" : "block cursor-pointer"}`}
+              className={`${
+                currentStep === steps.length - 1
+                  ? "hidden"
+                  : "block cursor-pointer"
+              }`}
             ></CommonButton>
             <CommonButton
-              className={`${currentStep < steps.length - 1 ? "hidden" : "block cursor-pointer"}`}
+              className={`${
+                currentStep < steps.length - 1
+                  ? "hidden"
+                  : "block cursor-pointer"
+              }`}
               text={`submit`}
               type={"submit"}
             ></CommonButton>

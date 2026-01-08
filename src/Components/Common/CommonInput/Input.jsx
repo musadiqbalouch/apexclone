@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 
 const Input = ({
   type,
@@ -10,6 +10,7 @@ const Input = ({
   name,
   option,
   ref,
+  onBlur,
 }) => {
   if (type === "select") {
     return (
@@ -21,6 +22,7 @@ const Input = ({
           name={name}
           onChange={onChange}
           value={value}
+          onBlur={onBlur}
           className={`${className} border w-full py-2 px-2 rounded-md placeholder:text-xs font-semibold  text-xs border-gray-200 `}
         >
           {option}
@@ -39,7 +41,13 @@ const Input = ({
   } else if (type === "checkbox") {
     return (
       <div className="w-full flex gap-2 ">
-        <input onChange={onChange} name={name} value={value} type="checkbox" />
+        <input
+          onChange={onChange}
+          name={name}
+          onBlur={onBlur}
+          value={value}
+          type="checkbox"
+        />
         <label className=" text-sm font-medium" htmlFor="">
           {label}
         </label>
@@ -55,6 +63,7 @@ const Input = ({
           type={type}
           className={`${className} border w-full py-1 px-2 rounded-md placeholder:text-xs font-semibold  border-gray-200`}
           onChange={onChange}
+          onBlur={onBlur}
           name={name}
           value={value}
           placeholder={placeholder}

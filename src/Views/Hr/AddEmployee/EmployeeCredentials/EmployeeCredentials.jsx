@@ -11,12 +11,18 @@ const EmployeeCredentials = ({ formik }) => {
         {...formik.getFieldProps("employeeEmail")}
         placeholder={"Enter employee email"}
       />
+      {formik.errors.employeeEmail && formik.touched.employeeEmail ? (
+        <p>{formik.errors.employeeEmail}</p>
+      ) : null}
       <Input
         label={"Password"}
         type={"password"}
         placeholder={"Enter Password"}
         {...formik.getFieldProps("password")}
       />
+      {formik.errors.password && formik.touched.password ? (
+        <p>{formik.errors.password}</p>
+      ) : null}
       <Input
         label={"Checkin Method"}
         type={"select"}
