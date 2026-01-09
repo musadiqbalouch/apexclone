@@ -11,6 +11,7 @@ const Input = ({
   option,
   ref,
   onBlur,
+  id,
 }) => {
   if (type === "select") {
     return (
@@ -61,6 +62,7 @@ const Input = ({
         </label>
         <input
           type={type}
+          id={id}
           className={`${className} border w-full py-1 px-2 rounded-md placeholder:text-xs font-semibold  border-gray-200`}
           onChange={onChange}
           onBlur={onBlur}

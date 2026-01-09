@@ -2,7 +2,7 @@ import React from "react";
 import Input from "../../../../../Components/Common/CommonInput/Input";
 import { TbPhoto } from "react-icons/tb";
 
-const ResumePayslip = ({ formik }) => {
+const ResumePayslip = ({ handleFileChange }) => {
   return (
     <div className="flex gap-2 items-center justify-center">
       <div className="items-center gap-5 mt-2">
@@ -19,7 +19,12 @@ const ResumePayslip = ({ formik }) => {
             <p className="text-gray-800 text-xs font-semibold">
               File should be below 5MB (.PDF,.DOC,.DOCX)
             </p>
-            <Input type={"file"} {...formik.getFieldProps("paySlip")} />
+            <Input
+              type={"file"}
+              name={"paySlip"}
+              id={"paySlip"}
+              onChange={(e) => handleFileChange(e, "paySlip")}
+            />
           </div>
         </div>
       </div>
@@ -37,7 +42,12 @@ const ResumePayslip = ({ formik }) => {
             <p className="text-gray-800 text-xs font-semibold">
               File should be below 5MB (.PDF,.DOC,.DOCX)
             </p>
-            <Input type={"file"} {...formik.getFieldProps("updatedResume")} />
+            <Input
+              type={"file"}
+              name={"updatedResume"}
+              id={"updatedResume"}
+              onChange={(e) => handleFileChange(e, "updatedResume")}
+            />
           </div>
         </div>
       </div>

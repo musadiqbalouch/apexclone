@@ -5,9 +5,9 @@ import Input from "../../../../Components/Common/CommonInput/Input";
 import { gender } from "../../../../Components/Constants/HrConstantsData/HrConstantData";
 import { MaritalStatus } from "../../../../Components/Constants/HrConstantsData/HrConstantData";
 
-const PersonalInformarion = ({ formik }) => {
+const PersonalInformarion = ({ formik, handleFileChange }) => {
   return (
-    <div className="w-full px-2 ">
+    <div className="w-full px-2  ">
       <div className="w-full  border-gray-200 flex items-center border  mt-2 rounded-md px-3 gap-3 py-1">
         <div className="bg-gray-300 w-fit  text-center p-5  rounded-3xl">
           <TbPhoto className="text-gray-600 h-7 w-7 text-center" />
@@ -19,7 +19,12 @@ const PersonalInformarion = ({ formik }) => {
           <p className="text-gray-800 text-xs font-semibold py-1">
             Image Should be Below 5MB
           </p>
-          <Input type={"file"} {...formik.getFieldProps("profile")} />
+          <Input
+            type={"file"}
+            id={"profile"}
+            name={"profile"}
+            onChange={(e) => handleFileChange(e, "profile")}
+          />
         </div>
       </div>
       <div className="flex flex-col gap-2">
@@ -32,7 +37,9 @@ const PersonalInformarion = ({ formik }) => {
               {...formik.getFieldProps("fullName")}
             />
             {formik.errors.fullName && formik.touched.fullName ? (
-              <p>{formik.errors.fullName}</p>
+              <p className="text-xs font-semibold text-red">
+                {formik.errors.fullName}
+              </p>
             ) : null}
           </div>
           <div className="w-full">
@@ -58,7 +65,9 @@ const PersonalInformarion = ({ formik }) => {
               ))}
             />
             {formik.errors.gender && formik.touched.gender ? (
-              <p>{formik.errors.gender}</p>
+              <p className="text-xs font-semibold text-red">
+                {formik.errors.gender}
+              </p>
             ) : null}
           </div>
         </div>
@@ -74,7 +83,9 @@ const PersonalInformarion = ({ formik }) => {
               ))}
             />
             {formik.errors.maritalstatus && formik.touched.maritalstatus ? (
-              <p>{formik.errors.maritalstatus}</p>
+              <p className="text-xs font-semibold text-red">
+                {formik.errors.maritalstatus}
+              </p>
             ) : null}
           </div>
           <div className="w-full">
@@ -85,7 +96,9 @@ const PersonalInformarion = ({ formik }) => {
               {...formik.getFieldProps("nationality")}
             />
             {formik.errors.nationality && formik.touched.nationality ? (
-              <p>{formik.errors.nationality}</p>
+              <p className="text-xs font-semibold text-red" s>
+                {formik.errors.nationality}
+              </p>
             ) : null}
           </div>
           <div className="w-full">

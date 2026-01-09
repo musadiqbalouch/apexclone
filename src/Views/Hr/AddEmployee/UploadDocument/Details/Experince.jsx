@@ -2,7 +2,7 @@ import React from "react";
 import Input from "../../../../../Components/Common/CommonInput/Input";
 import { TbPhoto } from "react-icons/tb";
 
-const Experince = ({ formik }) => {
+const Experince = ({ formik, handleFileChange }) => {
   return (
     <div className="flex gap-2 items-center justify-center">
       <div className=" items-center gap-5 mt-2">
@@ -21,7 +21,9 @@ const Experince = ({ formik }) => {
             </p>
             <Input
               type={"file"}
-              {...formik.getFieldProps("experienceLetter")}
+              name={"experienceLetter"}
+              id={"experienceLetter"}
+              onChange={(e) => handleFileChange(e, "experienceLetter")}
             />
           </div>
         </div>
@@ -40,7 +42,12 @@ const Experince = ({ formik }) => {
             <p className="text-gray-800 text-xs font-semibold">
               File should be below 5MB (.PDF,.DOC,.DOCX)
             </p>
-            <Input type={"file"} {...formik.getFieldProps("lastEducation")} />
+            <Input
+              type={"file"}
+              name={"lastEducation"}
+              id={"lastEducation"}
+              onChange={(e) => handleFileChange(e, "lastEducation")}
+            />
           </div>
         </div>
       </div>

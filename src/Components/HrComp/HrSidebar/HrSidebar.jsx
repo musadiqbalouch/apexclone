@@ -19,7 +19,11 @@ const HrSidebar = () => {
             <NavLink
               to={link.path}
               key={index}
-              className="flex items-start gap-3 mx-5 bgred py-3 px-2 rounded-sm "
+              className={({ isActive }) =>
+                isActive
+                  ? " flex  items-start gap-3 mx-5  bg-red  py-3  px-2 rounded-sm "
+                  : " flex  items-start gap-3 mx-5  bgred  py-3  px-2 rounded-sm "
+              }
             >
               <img className="h-4 object-cover" src={link.logo} alt="" />
               <h2 className=" text-xs">{link.title}</h2>

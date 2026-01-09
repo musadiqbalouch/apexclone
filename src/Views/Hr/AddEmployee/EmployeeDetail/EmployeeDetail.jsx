@@ -21,7 +21,9 @@ const EmployeeDetail = ({ formik }) => {
               {...formik.getFieldProps("jobTitle")}
             />
             {formik.errors.jobTitle && formik.touched.jobTitle ? (
-              <p>{formik.errors.jobTitle}</p>
+              <p className="text-xs font-semibold text-red">
+                {formik.errors.jobTitle}
+              </p>
             ) : null}
           </div>
           <div className="w-full">
@@ -34,7 +36,9 @@ const EmployeeDetail = ({ formik }) => {
               ))}
             />
             {formik.errors.department && formik.touched.department ? (
-              <p>{formik.errors.department}</p>
+              <p className="text-xs font-semibold text-red">
+                {formik.errors.department}
+              </p>
             ) : null}
           </div>
           <div className="w-full">
@@ -59,7 +63,9 @@ const EmployeeDetail = ({ formik }) => {
               ))}
             />
             {formik.errors.employeerole && formik.touched.employeerole ? (
-              <p>{formik.errors.employeerole}</p>
+              <p className="text-xs font-semibold text-red">
+                {formik.errors.employeerole}
+              </p>
             ) : null}
           </div>
           <div className="w-full">
@@ -70,7 +76,9 @@ const EmployeeDetail = ({ formik }) => {
               className={"placeholder:text-xs font-semibold  text-xs py-2"}
             />
             {formik.errors.dateofJoining && formik.touched.dateofJoining ? (
-              <p>{formik.errors.dateofJoining}</p>
+              <p className="text-xs font-semibold text-red">
+                {formik.errors.dateofJoining}
+              </p>
             ) : null}
           </div>
           <div className="w-full">
@@ -83,7 +91,9 @@ const EmployeeDetail = ({ formik }) => {
               ))}
             />
             {formik.errors.employementType && formik.touched.employementType ? (
-              <p>{formik.errors.employementType}</p>
+              <p className="text-xs font-semibold text-red">
+                {formik.errors.employementType}
+              </p>
             ) : null}
           </div>
         </div>
@@ -98,7 +108,9 @@ const EmployeeDetail = ({ formik }) => {
               ))}
             />
             {formik.errors.workLocation && formik.touched.workLocation ? (
-              <p>{formik.errors.workLocation}</p>
+              <p className="text-xs font-semibold text-red">
+                {formik.errors.workLocation}
+              </p>
             ) : null}
           </div>
           <div className="w-full">
@@ -111,7 +123,9 @@ const EmployeeDetail = ({ formik }) => {
               ))}
             />
             {formik.errors.shiftTiming && formik.touched.shiftTiming ? (
-              <p>{formik.errors.shiftTiming}</p>
+              <p className="text-xs font-semibold text-red">
+                {formik.errors.shiftTiming}
+              </p>
             ) : null}
           </div>
           <div className="w-full">
@@ -121,7 +135,9 @@ const EmployeeDetail = ({ formik }) => {
               type={"text"}
             />
             {formik.errors.ProbationPeriod && formik.touched.ProbationPeriod ? (
-              <p>{formik.errors.ProbationPeriod}</p>
+              <p className="text-xs font-semibold text-red">
+                {formik.errors.ProbationPeriod}
+              </p>
             ) : null}
           </div>
         </div>

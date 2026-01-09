@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PersonalInformarion from "./PersonalInformation/PersonalInformarion";
 import EmployeeDetail from "./EmployeeDetail/EmployeeDetail";
 import ItSystem from "./ItSystem/ItSystem";
@@ -12,6 +12,7 @@ import { useFormik } from "formik";
 
 const AddEmployee = ({ setShowModal }) => {
   const [currentStep, setCurrentStep] = useState(0);
+
   console.log(currentStep);
   const steps = [
     PersonalInformarion,
@@ -113,8 +114,17 @@ const AddEmployee = ({ setShowModal }) => {
     },
   });
 
+  const handleFileChange = (e, fieldName) => {
+    const file = e.currentTarget.files[0];
+    if (file) {
+      formik.setFieldValue(fieldName, file);
+    }
+  };
+  const handleClick = (index) => {
+    setCurrentStep(index);
+  };
   return (
-    <div className="bg-white h-145 w-245 rounded-md px-4">
+    <div className="bg-white h145 w-245 rounded-md px-4">
       <div className="w-full flex items-center justify-between  pt-4">
         <h2 className="text-gray-800 font-bold text-lg ">Add New Employee</h2>
         <MdOutlineCancel
@@ -126,14 +136,21 @@ const AddEmployee = ({ setShowModal }) => {
       <div className="border border-gray-400 rounded-md mt-2 p-2">
         <div className="flex items-center justify-around">
           {FormTitles.map((title, index) => (
-            <h2 className="text-gray-800 font-semibold text-sm" key={index}>
+            <h2
+              onClick={(e) => handleClick(index)}
+              className="text-gray-800 font-semibold text-sm  cursor-pointer"
+              key={index}
+            >
               {title}
             </h2>
           ))}
         </div>
         <form onSubmit={formik.handleSubmit}>
-          <div className="">
-            <CurrentStepperComponent formik={formik} />
+          <div className=" flex-1 overflow-y-scroll border-t border-b h-100 py-3">
+            <CurrentStepperComponent
+              formik={formik}
+              handleFileChange={handleFileChange}
+            />
           </div>
           <div className="flex justify-center m-auto gap-5 mt-2">
             <CommonButton
@@ -148,6 +165,7 @@ const AddEmployee = ({ setShowModal }) => {
             <CommonButton
               onClick={nextStep}
               type={"button"}
+              disabled={!formik.dirty}
               text={"Next"}
               className={`${
                 currentStep === steps.length - 1

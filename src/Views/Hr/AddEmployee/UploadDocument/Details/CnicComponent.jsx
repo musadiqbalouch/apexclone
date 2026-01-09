@@ -2,7 +2,7 @@ import React from "react";
 import { TbPhoto } from "react-icons/tb";
 import Input from "../../../../../Components/Common/CommonInput/Input";
 
-const CnicComponent = ({ formik }) => {
+const CnicComponent = ({ handleFileChange }) => {
   return (
     <div className="flex gap-2 items-center justify-center">
       <div className="items-center gap-5 mt-2">
@@ -17,7 +17,12 @@ const CnicComponent = ({ formik }) => {
             <p className="text-gray-800 text-xs font-semibold">
               Image should be below 5MsB
             </p>
-            <Input type={"file"} {...formik.getFieldProps("CNICFront")} />
+            <Input
+              type={"file"}
+              id={"CNICFront"}
+              name={"CNICFront"}
+              onChange={(e) => handleFileChange(e, "CNICFront")}
+            />
           </div>
         </div>
       </div>
@@ -33,7 +38,12 @@ const CnicComponent = ({ formik }) => {
             <p className="text-gray-800 text-xs font-semibold">
               Image should be below 5MB
             </p>
-            <Input type={"file"} {...formik.getFieldProps("CNICBack")} />
+            <Input
+              type={"file"}
+              id={"CNICBack"}
+              name={"CNICBack"}
+              onChange={(e) => handleFileChange(e, "CNICBack")}
+            />
           </div>
         </div>
       </div>
