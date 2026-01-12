@@ -10,7 +10,11 @@ import { BiSolidNotepad } from "react-icons/bi";
 import { FaCircleDollarToSlot } from "react-icons/fa6";
 import AttendanceOverview from "../AttendanceOverview/AttendanceOverview";
 import CheckInOut from "../CheckInOut/CheckInOut";
-
+import TableHead from "../../../Components/Common/Table/TableHead";
+import { LeaveComponentHeader } from "../../../Components/Constants/HrConstantsData/HrConstantData";
+import AttendanceDetails from "../AttendanceDetails/AttendanceDetails";
+import EmployeeStatus from "../EmployeeStatus/EmployeeStatus";
+import Char from "../Chart/Char";
 const HrDashboard = () => {
   const [showModal, setShowModal] = useState(false);
 
@@ -80,6 +84,13 @@ const HrDashboard = () => {
       <div className="flex w-full items-center  gap-2 ">
         <AttendanceOverview />
         <CheckInOut />
+      </div>
+      <div className="w-full">
+        <AttendanceDetails />
+      </div>
+      <div className="flex w-full items-center justify-between">
+        <EmployeeStatus />
+        <Char />
       </div>
     </div>
   );

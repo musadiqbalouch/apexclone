@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import ApexLogo from "../../../assets/HrSidebarimages/ApexLogo.png";
 import { SideBarLinks } from "../../Constants/Constant";
 import { bottomLinks } from "../../Constants/Constant";
 import { NavLink } from "react-router-dom";
 
 const HrSidebar = () => {
+  const [dropDown, seDropDown] = useState(false);
+
+  const handleDropDown = () => {
+    seDropDown(!dropDown);
+  };
   return (
     <div
       className="bg-black w-full  mx2 my-4 py-5 rounded-tl-2xl rounded-bl-2xl rounded-br-2xl  
@@ -18,6 +23,7 @@ const HrSidebar = () => {
           {SideBarLinks.map((link, index) => (
             <NavLink
               to={link.path}
+              onClick={() => handleDropDown(index)}
               key={index}
               className={({ isActive }) =>
                 isActive
@@ -26,7 +32,16 @@ const HrSidebar = () => {
               }
             >
               <img className="h-4 object-cover" src={link.logo} alt="" />
-              <h2 className=" text-xs">{link.title}</h2>
+              <div className=" text-xs">
+                {link.title}
+                {dropDown ? (
+                  <div>
+                    {link.nestedroutes?.map((route) => (
+                      <NavLink to={route.path}>{route.title}</NavLink>
+                    ))}
+                  </div>
+                ) : null}
+              </div>
             </NavLink>
           ))}
         </div>

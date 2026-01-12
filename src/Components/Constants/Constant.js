@@ -5,16 +5,26 @@ import LeaveManagementLogo from "../../assets/HrSidebarimages/LeaveManagementLog
 import PayrollManagementLogo from "../../assets/HrSidebarimages/PayrollLogo.png";
 import CommunicatationLogo from "../../assets/HrSidebarimages/CommunicatationLogo.png";
 // sidebar data of hr
+// path: "/hr/employees",
+
 export const SideBarLinks = [
   {
     logo: DashboardLogo,
     title: "Dashboard",
-    path: "/hr/dashboard",
+    path: "/hr",
   },
   {
     logo: EmployeeLogo,
     title: "Employees",
-    path: "/hr/employees",
+    // path: "/hr/employees",
+    nestedroutes: [
+      { title: "Employee List", path: "/employees/list" },
+      { title: "Departments", path: "/employees/department" },
+      {
+        title: "Employee Face Verification",
+        path: "/employee-face-verification",
+      },
+    ],
   },
   {
     logo: AttendanceLogo,

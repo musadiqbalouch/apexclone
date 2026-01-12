@@ -9,6 +9,7 @@ export const FormTitles = [
 import { TbPhoto } from "react-icons/tb";
 import Input from "../../Common/CommonInput/Input";
 import CommonButton from "../../Common/CommonButton/CommonButton";
+import { color } from "chart.js/helpers";
 export const Documents = [
   {
     logo: <TbPhoto className=" text-gray-600 h-7 w-7" />,
@@ -105,4 +106,57 @@ export const checkinMethod = [
   { checkinmethod: "Face" },
   { checkinmethod: "QR" },
   { checkinmethod: "Both" },
+];
+
+export const LeaveComponentHeader = [
+  "Leave ID",
+  "Employee Name",
+  "Leave Type",
+  "Status",
+  "Start Date",
+  "End Date",
+];
+export const LeaveComponentBody = [
+  {
+    id: "LR-003",
+    name: "Big Brother",
+    type: "Leave",
+    status: "Approved",
+    startDate: "10-Jan-2026",
+    endDate: "14-Jan-2026",
+    btn: <CommonButton text={"View Details"} />,
+  },
+  {
+    id: "LR-002",
+    name: "Big Brother",
+    type: "Leave",
+    status: "Approved",
+    startDate: "27-Oct-2025",
+    endDate: "28-Oct-2025",
+    btn: <CommonButton text={"View Details"} />,
+  },
+  {
+    id: "LR-001",
+    name: "Big Brother",
+    type: "Leave",
+    status: "Rejected",
+    startDate: "27-Oct-2025",
+    endDate: "28-Oct-2025",
+    btn: <CommonButton text={"View Details"} />,
+  },
+];
+
+// donutChar data
+import { GoDotFill } from "react-icons/go";
+export const DonutData = [
+  {
+    dot: <GoDotFill className=" text-red-400" />,
+    label: "PD",
+    value: 12,
+  },
+  {
+    dot: <GoDotFill className="text-blue-300" />,
+    label: "HR",
+    value: 1,
+  },
 ];
