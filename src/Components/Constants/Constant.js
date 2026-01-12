@@ -18,11 +18,11 @@ export const SideBarLinks = [
     title: "Employees",
     // path: "/hr/employees",
     nestedroutes: [
-      { title: "Employee List", path: "/employees/list" },
-      { title: "Departments", path: "/employees/department" },
+      { title: "Employee List", path: "hr/employees/list" },
+      { title: "Departments", path: "hr/employees/department" },
       {
         title: "Employee Face Verification",
-        path: "/employee-face-verification",
+        path: "hr/employee-face-verification",
       },
     ],
   },

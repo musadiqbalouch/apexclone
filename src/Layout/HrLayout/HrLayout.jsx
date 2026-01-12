@@ -18,9 +18,9 @@ const HrLayout = () => {
         <div>
           <Routes>
             <Route index element={<HrDashboard />} />
-            <Route path="hr/employees/list" element={<EmployeeList />} />
-            <Route path="hr/employees/department" />
-            <Route path="hr/employee-face-verification" />
+            <Route path="/hr/employees/list" element={<EmployeeList />} />
+            <Route path="/hr/employees/department" />
+            <Route path="/hr/employee-face-verification" />
           </Routes>
         </div>
       </div>
