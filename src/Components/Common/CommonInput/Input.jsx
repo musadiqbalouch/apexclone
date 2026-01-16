@@ -36,7 +36,14 @@ const Input = ({
         <label className="text-sm font-semibold" htmlFor="">
           {label}
         </label>
-        <textarea></textarea>
+        <textarea
+          onChange={onChange}
+          className={className}
+          onBlur={onBlur}
+          value={value}
+          name={name}
+          placeholder={placeholder}
+        ></textarea>
       </div>
     );
   } else if (type === "checkbox") {

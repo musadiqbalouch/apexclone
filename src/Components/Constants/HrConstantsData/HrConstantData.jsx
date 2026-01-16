@@ -160,3 +160,21 @@ export const DonutData = [
     value: 1,
   },
 ];
+
+// Task data
+const TaskData = [
+  {
+    taskId: 1,
+    taskName: "Create HrLayout",
+    tasks: [
+      {
+        id: 1,
+        title: "Added Hr Layout",
+      },
+      {
+        id: 2,
+        title: "Added Css",
+      },
+    ],
+  },
+];

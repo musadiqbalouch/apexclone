@@ -16,13 +16,13 @@ export const SideBarLinks = [
   {
     logo: EmployeeLogo,
     title: "Employees",
-    // path: "/hr/employees",
+    // path: "/employee",
     nestedroutes: [
-      { title: "Employee List", path: "hr/employees/list" },
-      { title: "Departments", path: "hr/employees/department" },
+      { title: "Create Task", path: "/hr/employees/list" },
+      { title: "Departments", path: "/hr/employees/department" },
       {
         title: "Employee Face Verification",
-        path: "hr/employee-face-verification",
+        path: "/hr/employee-face-verification",
       },
     ],
   },

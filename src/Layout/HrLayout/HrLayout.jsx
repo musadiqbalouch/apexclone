@@ -8,19 +8,19 @@ import EmployeeList from "../../Views/Hr/EmployeeList/EmployeeList";
 const HrLayout = () => {
   return (
     <div className="w-full flex gap-5 pl-2 ">
-      <div className="w-[20%]  ">
+      <div className="w-[18%] ">
         <HrSidebar />
       </div>
       <div className="flex-1">
         <div className=" ">
           <Header />
         </div>
-        <div>
+        <div className="overflow-y-scroll">
           <Routes>
-            <Route index element={<HrDashboard />} />
-            <Route path="/hr/employees/list" element={<EmployeeList />} />
-            <Route path="/hr/employees/department" />
-            <Route path="/hr/employee-face-verification" />
+            <Route path="/" element={<HrDashboard />} />
+            <Route path="/employees/list" element={<EmployeeList />} />
+            <Route path="/employees/department" />
+            <Route path="/employee-face-verification" />
           </Routes>
         </div>
       </div>
