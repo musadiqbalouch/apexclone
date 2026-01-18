@@ -22,19 +22,24 @@ const EmployeeList = () => {
     setId(task.taskId, "id");
     setCardModal(true);
   };
-  const deleteTask = (subtask) => {
-    const TotalTask = JSON.parse(localStorage.getItem("Task")) || [];
+ const deleteTask = (subtask) => {
+  // const [task,setTask]=useState(null)
+  const TotalTask = JSON.parse(localStorage.getItem("Task")) || [];
+  // setTask(TotalTask)
+  // console.log(task)
+  const parentTask = TotalTask.find(parent => parent.taskId === subtask.parentId);
 
-    const taskFind = TotalTask.find((task) => task.taskId === subtask.parentId);
-    if (taskFind) {
-      taskFind.subtask.slice(subtask.childId, 1);
-      console.log(subtask.childId);
-      subtask.splice(subtask.childId);
-      console.log("true");
-    } else {
-      console.log("false");
+  if (parentTask) {
+    const childIndex = parentTask.totalTask.find(child => child.childId === subtask.childId);
+
+    if (childIndex !== -1) {
+      parentTask.totalTask.splice(childIndex, 1);
+
+  
+      localStorage.setItem("Task", JSON.stringify(TotalTask));
     }
-  };
+  }
+};
 
   return (
     <div className="w-full">
