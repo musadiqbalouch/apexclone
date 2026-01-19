@@ -4,21 +4,20 @@ import CommonButton from "../../../Components/Common/CommonButton/CommonButton";
 import { RxCross1 } from "react-icons/rx";
 import { useFormik } from "formik";
 
-const AddTask = ({ setShowModal }) => {
+const AddTask = ({ setShowModal, tasks }) => {
   const formik = useFormik({
     initialValues: {
       TaskTitle: "",
       TotalTask: [],
     },
     onSubmit: (values) => {
-      const TotalTask = JSON.parse(localStorage.getItem("Task")) || [];
       const task = {
-        taskId: TotalTask.length + 1,
+        taskId: tasks.length + 1,
         task: values.TaskTitle,
         totalTask: values.TotalTask,
       };
-      TotalTask.push(task);
-      localStorage.setItem("Task", JSON.stringify(TotalTask));
+      tasks.push(task);
+      localStorage.setItem("Task", JSON.stringify(tasks));
       formik.resetForm();
       setShowModal(false);
     },

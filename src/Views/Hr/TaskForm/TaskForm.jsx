@@ -5,11 +5,10 @@ import Input from "../../../Components/Common/CommonInput/Input";
 import CommonButton from "../../../Components/Common/CommonButton/CommonButton";
 import { MdDelete } from "react-icons/md";
 
-const TaskForm = ({ setCardModal, id }) => {
-  const TotalTask = JSON.parse(localStorage.getItem("Task")) || [];
-  const copy = [...TotalTask];
-
-  console.log("🚀 ~ TaskForm ~ TotalTask:", TotalTask);
+const TaskForm = ({ setCardModal, id, tasks }) => {
+  // const TotalTask = JSON.parse(localStorage.getItem("Task")) || [];
+  const copy = [...tasks];
+  // console.log("🚀 ~ TaskForm ~ TotalTask:", TotalTask);
   const formik = useFormik({
     initialValues: {
       AboutTask: "",
@@ -17,7 +16,7 @@ const TaskForm = ({ setCardModal, id }) => {
       TaskDescrption: "",
     },
     onSubmit: (values) => {
-      const taskFind = TotalTask.find((task) => task.taskId === id);
+      const taskFind = tasks.find((task) => task.taskId === id);
       const task = {
         parentId: id,
         childId: taskFind.totalTask.length + 1,

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CommonButton from "../../../Components/Common/CommonButton/CommonButton";
 import Modal from "../../../Components/Common/Modal/Modal";
 import AddTask from "../AddTaskForm/AddTask";
@@ -11,35 +11,35 @@ const EmployeeList = () => {
   const [showModal, setShowModal] = useState(false);
   const [cardModal, setCardModal] = useState(false);
   const [id, setId] = useState(null);
+  const [tasks, setTasks] = useState(
+    () => JSON.parse(localStorage.getItem("Task")) || [],
+  );
 
   const handleModal = () => {
     setShowModal(true);
   };
-  const TotalTask = JSON.parse(localStorage.getItem("Task")) || [];
 
   const addTask = (task) => {
     console.log(task);
-    setId(task.taskId, "id");
+    setId(task.taskId);
     setCardModal(true);
   };
- const deleteTask = (subtask) => {
-  // const [task,setTask]=useState(null)
-  const TotalTask = JSON.parse(localStorage.getItem("Task")) || [];
-  // setTask(TotalTask)
-  // console.log(task)
-  const parentTask = TotalTask.find(parent => parent.taskId === subtask.parentId);
 
-  if (parentTask) {
-    const childIndex = parentTask.totalTask.find(child => child.childId === subtask.childId);
+  const deleteTask = (subtask) => {
+    const selectedTask = [...tasks];
+    const parentTask = selectedTask.find(
+      (parent) => parent.taskId === subtask.parentId,
+    );
+    cnst;
 
-    if (childIndex !== -1) {
-      parentTask.totalTask.splice(childIndex, 1);
+    const child = parentTask.totalTask.findIndex(
+      (child) => child.childId === subtask.childId,
+    );
 
-  
-      localStorage.setItem("Task", JSON.stringify(TotalTask));
-    }
-  }
-};
+    parentTask.totalTask.splice(child, 1);
+    const deletee = localStorage.setItem("Task", JSON.stringify(tasks));
+    // setTasks(deletee);
+  };
 
   return (
     <div className="w-full">
@@ -50,12 +50,16 @@ const EmployeeList = () => {
         </div>
         {showModal && (
           <Modal>
-            <AddTask setShowModal={setShowModal} />
+            <AddTask
+              setShowModal={setShowModal}
+              tasks={tasks}
+              setTasks={setTasks}
+            />
           </Modal>
         )}
       </div>
       <div className="flex gap-2 items-center flex-wrap mt-2">
-        {TotalTask.map((task, id) => (
+        {tasks.map((task, id) => (
           <div
             key={id.taskId}
             className="bg-[#F0F0F0] w-60 rounded-md  flex flex-col  justify-between p-2 gap-2"
@@ -98,7 +102,12 @@ const EmployeeList = () => {
       </div>
       {cardModal && (
         <Modal>
-          <TaskForm setCardModal={setCardModal} id={id} />
+          <TaskForm
+            setCardModal={setCardModal}
+            id={id}
+            tasks={tasks}
+            setTasks={setTasks}
+          />
         </Modal>
       )}
     </div>
